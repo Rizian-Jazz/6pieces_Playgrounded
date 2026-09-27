@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
-public class StartGame : MonoBehaviour
+public class DeathScene : MonoBehaviour
 {
     public float fadeDuration = 1f;
     private Image fadeImage;
+    PlayerHealth playerHealth = FindFirstObjectByType<PlayerHealth>();
 
     void Start()
     {
@@ -25,9 +26,12 @@ public class StartGame : MonoBehaviour
         rt.offsetMin = Vector2.zero;
         rt.offsetMax = Vector2.zero;
     }
-    public void GoToMenuScene()
+    public void FixedUpdate()
     {
-        StartCoroutine(FadeAndLoad());
+        if(playerHealth != null && playerHealth.currentHealth <= 0)
+        {
+            StartCoroutine(FadeAndLoad());
+        }
     }
     IEnumerator FadeAndLoad()
     {
@@ -38,7 +42,6 @@ public class StartGame : MonoBehaviour
             fadeImage.color = new Color(0, 0, 0, elapsed / fadeDuration);
             yield return null;
         }
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Death Screen");
     }
-    
 }
