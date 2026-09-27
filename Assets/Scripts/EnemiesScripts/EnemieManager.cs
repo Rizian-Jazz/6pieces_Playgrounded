@@ -8,6 +8,7 @@ public class EnemieManager : BaseCharacterController
     public override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public override void FixedUpdate()

@@ -6,28 +6,31 @@ using System.Collections;
 public class AutoShots : MonoBehaviour
 {   
     public GameObject bulletPrefab;
-    public UnityEvent fireEvent;
-    public static float bulletSpeed = 10f, bulletInterval = 0.7f;
+    public float bulletSpeed = 10f, bulletInterval = 0.7f;
     public Transform firePoint; 
     public static bool canThrow = true;
+    private Coroutine fireCoroutine;
 
 
-    public void Start()
-    {
-        StartCoroutine(FireLoop());
-    } 
     public void FixedUpdate()
     {
-        if (canThrow == false)
+        if (canThrow == true && fireCoroutine == null) 
+        {  
+            fireCoroutine = StartCoroutine(FireLoop());
+        }
+        else if (canThrow == false && fireCoroutine != null)
         {
-            StopCoroutine(FireLoop());
+            StopCoroutine(fireCoroutine);
+            fireCoroutine = null;
         }
     }
     
     IEnumerator FireLoop()
     {
+        
         while (canThrow == true)
         {
+            yield return new WaitForSeconds(bulletInterval);
             
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
@@ -37,7 +40,6 @@ public class AutoShots : MonoBehaviour
                 bulletRb.linearVelocity = firePoint.up * bulletSpeed;
             }
 
-            yield return new WaitForSeconds(bulletInterval);
         }            
     }
     

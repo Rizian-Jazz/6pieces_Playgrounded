@@ -1,22 +1,17 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemieHealth : EnemieManager
 {
-    public int EnemyHealth = 100;
-    public int EnemyDamage = 5;
-
-    public override void OnTriggerEnter2D(Collider2D collision)
+    public int EnemyHealth = 100, enemyCurrentHealth, EnemyDamage = 5;
+    public float damageCooldown = 0.1f;
+    
+    public override void Start()
     {
-        if(collision.gameObject.CompareTag("Bullet"))
-        {
-            Debug.Log("Enemy hit by bullet! -" + HomingShots.bulletDamage + " HP");
-            EnemyHealth -= HomingShots.bulletDamage;
-            if(EnemyHealth <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }  
+        base.Start();
+        enemyCurrentHealth = EnemyHealth;
     }
+    
     public override void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -28,8 +23,24 @@ public class EnemieHealth : EnemieManager
                 Debug.Log("Enemy collided with player! Player takes " + EnemyDamage + " damage.");
             }
         }
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemie"))
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
-}}
+    }
+    public void TakeDamage(int amount)
+    {
+        StartCoroutine(Damage(amount));
+    }
+
+    IEnumerator Damage(int amount)
+    {
+        enemyCurrentHealth -= amount;
+        if (enemyCurrentHealth <= 0)
+        {
+            Debug.Log("Enemy morreu");
+            Destroy(gameObject);
+        }
+        yield return new WaitForSeconds(damageCooldown);
+    }
+}
