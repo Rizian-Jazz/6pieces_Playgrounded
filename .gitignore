@@ -104,3 +104,5 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+Assets/Sprites/UI/FadeImage.png
+Assets/Sprites/UI/FadeImage.png.meta

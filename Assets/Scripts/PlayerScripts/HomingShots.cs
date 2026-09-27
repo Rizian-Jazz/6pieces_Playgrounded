@@ -4,7 +4,7 @@ public class HomingShots : MonoBehaviour
 {
     public float bulletSpeed = 3f;
     public float rotationSpeed = 100f;
-    public int bulletDamage = 20; 
+    public int bulletDamage = 50; 
 
     public Rigidbody2D rb;
     public Transform target;
