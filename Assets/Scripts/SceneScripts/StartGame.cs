@@ -25,7 +25,7 @@ public class StartGame : MonoBehaviour
         rt.offsetMin = Vector2.zero;
         rt.offsetMax = Vector2.zero;
     }
-    public void GoToMenuScene()
+    public void PlayGame()
     {
         StartCoroutine(FadeAndLoad());
     }

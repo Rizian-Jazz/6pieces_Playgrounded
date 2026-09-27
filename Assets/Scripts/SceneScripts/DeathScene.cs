@@ -26,12 +26,9 @@ public class DeathScene : MonoBehaviour
         rt.offsetMin = Vector2.zero;
         rt.offsetMax = Vector2.zero;
     }
-    public void FixedUpdate()
+    public void LoadDeathScene()
     {
-        if(playerHealth != null && playerHealth.currentHealth <= 0)
-        {
-            StartCoroutine(FadeAndLoad());
-        }
+        StartCoroutine(FadeAndLoad());
     }
     IEnumerator FadeAndLoad()
     {

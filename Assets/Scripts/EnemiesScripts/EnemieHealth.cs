@@ -40,6 +40,11 @@ public class EnemieHealth : EnemieManager
         {
             Debug.Log("Enemy morreu");
             Destroy(gameObject);
+            EnemieSpawn enemieSpawn = FindFirstObjectByType<EnemieSpawn>();
+            if (enemieSpawn != null)
+            {
+                enemieSpawn.currentEnemies--;
+            }
         }
         yield return new WaitForSeconds(damageCooldown);
     }

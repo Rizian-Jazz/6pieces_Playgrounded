@@ -5,7 +5,7 @@ public class EnemieSpawn : MonoBehaviour
     public GameObject enemiePrefab;
     public Transform spawnPoint;
     public float spawnCooldown = 2f;
-    public int maxEnemies = 10, distanceToSpawn = 10;
+    public int maxEnemies = 100, distanceToSpawn = 10;
     public int currentEnemies = 0;
     void Start()
     {

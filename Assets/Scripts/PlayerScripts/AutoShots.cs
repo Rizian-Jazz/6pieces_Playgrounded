@@ -6,11 +6,10 @@ using System.Collections;
 public class AutoShots : MonoBehaviour
 {   
     public GameObject bulletPrefab;
-    public float bulletSpeed = 10f, bulletInterval = 0.7f;
+    public float bulletSpeed = 10f, bulletInterval = 0.4f;
     public Transform firePoint; 
     public static bool canThrow = true;
     private Coroutine fireCoroutine;
-
 
     public void FixedUpdate()
     {

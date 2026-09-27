@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100, currentHealth;
@@ -28,7 +28,15 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player morreu");
+            DeathScene deathScene = FindFirstObjectByType<DeathScene>();
+            if (deathScene != null)
+            {
+                deathScene.LoadDeathScene();
+            }
+            else Debug.LogError("DeathScene script not found in the scene.");
             Destroy(gameObject);
+            yield break;
+            
         }
         yield return new WaitForSeconds(damageCooldown);
         isInvincible = false;
