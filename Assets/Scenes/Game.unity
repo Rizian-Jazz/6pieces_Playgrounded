@@ -880,12 +880,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.35799757, g: 0.050980397, b: 0.9764706, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 253220f544039014892cb9b229121d0e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.064, y: 0.064}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -899,8 +899,8 @@ Transform:
   m_GameObject: {fileID: 1203199169}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.15, y: -0.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.9468, y: -0.03641, z: 0}
+  m_LocalScale: {x: 30.28579, y: 30.285786, z: 30.285786}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2088810880}
@@ -1039,6 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   rb: {fileID: 0}
   moveSpeed: 10
+  isFlipped: 1
 --- !u!114 &1203199176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,17 +1090,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.000049737282, y: 0.00071050227}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.064, y: 0.064}
+    newSize: {x: 0.064, y: 0.064}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.0598203, y: 0.079121456}
   m_EdgeRadius: 0
 --- !u!114 &1203199178
 MonoBehaviour:
@@ -1488,9 +1489,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemieSpawn
   enemiePrefab: {fileID: 3629471712531788287, guid: de0d55f84b2541745a93f4182bdd8af0, type: 3}
-  spawnPoint: {fileID: 2019351197}
+  spawnPoint: {fileID: 0}
   spawnCooldown: 2
-  maxEnemies: 10
+  maxEnemies: 100
   distanceToSpawn: 10
   currentEnemies: 0
 --- !u!1 &2088810879
@@ -1519,8 +1520,8 @@ Transform:
   m_GameObject: {fileID: 2088810879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.56, y: 0, z: 0}
-  m_LocalScale: {x: 0.15534446, y: 0.15534446, z: 0.15534446}
+  m_LocalPosition: {x: 0.0017, y: -0.0279, z: 0}
+  m_LocalScale: {x: 0.014274807, y: 0.011462841, z: 0.04549884}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1203199173}

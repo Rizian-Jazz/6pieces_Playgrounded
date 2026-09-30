@@ -171,4 +171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HomingShots
   bulletSpeed: 5
   rotationSpeed: 100
-  enemyObj: {fileID: 0}
+  bulletDamage: 25
+  rb: {fileID: 0}
+  target: {fileID: 0}

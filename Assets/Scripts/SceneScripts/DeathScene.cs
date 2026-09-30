@@ -6,7 +6,6 @@ public class DeathScene : MonoBehaviour
 {
     public float fadeDuration = 1f;
     private Image fadeImage;
-    PlayerHealth playerHealth = FindFirstObjectByType<PlayerHealth>();
 
     void Start()
     {
