@@ -18,6 +18,7 @@ public class XPOrb : MonoBehaviour
             if (playerLevel != null)
             {
                 playerLevel.LevelUp(playerLevel.XPValue);
+                Debug.Log("Player collected XP orb!");
                 Destroy(gameObject);
             }
         }
