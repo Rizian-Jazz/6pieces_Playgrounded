@@ -5,11 +5,17 @@ public class EnemieHealth : EnemieManager
 {
     public int EnemyHealth = 100, enemyCurrentHealth, EnemyDamage = 5;
     public float damageCooldown = 0.1f;
+    public bool isDead = false;
+    EnemieSpawn enemieSpawn;
+    PlayerLevel playerLevel;
+    
     
     public override void Start()
     {
         base.Start();
         enemyCurrentHealth = EnemyHealth;
+        enemieSpawn = FindFirstObjectByType<EnemieSpawn>();
+        playerLevel = FindFirstObjectByType<PlayerLevel>();
     }
     
     public override void OnCollisionEnter2D(Collision2D collision)
@@ -35,16 +41,17 @@ public class EnemieHealth : EnemieManager
 
     IEnumerator Damage(int amount)
     {
+        isDead = false;
         enemyCurrentHealth -= amount;
         if (enemyCurrentHealth <= 0)
         {
+        
+            Instantiate(playerLevel.XPOrbPrefab, transform.position, Quaternion.identity);
             Debug.Log("Enemy morreu");
             Destroy(gameObject);
-            EnemieSpawn enemieSpawn = FindFirstObjectByType<EnemieSpawn>();
-            if (enemieSpawn != null)
-            {
-                enemieSpawn.currentEnemies--;
-            }
+            enemieSpawn.currentEnemies -= 1;
+            isDead = true;
+            
         }
         yield return new WaitForSeconds(damageCooldown);
     }

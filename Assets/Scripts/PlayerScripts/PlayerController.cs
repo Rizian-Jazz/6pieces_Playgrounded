@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerController : BaseCharacterController
 {
     public Rigidbody2D rb;
+    public int playerLevel = 1;
     public override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
