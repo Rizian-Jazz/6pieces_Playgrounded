@@ -36,7 +36,6 @@ public class PlayerHealth : MonoBehaviour
             else Debug.LogError("DeathScene script not found in the scene.");
             Destroy(gameObject);
             yield break;
-            
         }
         yield return new WaitForSeconds(damageCooldown);
         isInvincible = false;
