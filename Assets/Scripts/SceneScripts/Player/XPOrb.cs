@@ -10,13 +10,10 @@ public class XPOrb : MonoBehaviour
         playerLevel = FindFirstObjectByType<PlayerLevel>();
         playerLevel.XPValue = XPValue;
     }
-    void Update()
+    
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             if (playerLevel != null)
             {
@@ -24,9 +21,9 @@ public class XPOrb : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        if (collision.gameObject.CompareTag("Enemie"))
+        if(collision.CompareTag("Enemie"))
         {
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>());
         }
     }
 }
