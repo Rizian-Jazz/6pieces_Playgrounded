@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float time = 10f;
+    //public float time = 10f;
     public bool isRunning = false;
-    void Update()
+    void FixedUpdate()
+    {
+        
+    }
+    public void SetTimer(float time)
     {
         if (isRunning == true)
         {
@@ -16,6 +20,5 @@ public class Timer : MonoBehaviour
             time = 10f;
             Debug.Log("Timer is not running.");
         }
-        
     }
 }

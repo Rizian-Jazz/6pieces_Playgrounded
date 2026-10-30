@@ -3,15 +3,14 @@ using System.Collections;
 public class SpawnLoot : MonoBehaviour
 {
     PlayerLevel playerLevel;
-    Timer timer;
     public GameObject player, LootPrefab;
-    public float spawnCooldown = 30f, spawnRadius = 5f;
+    public float spawnCooldown = 30f, spawnRadius = 5f, spawnTime = 10f;
     private bool isSpawning = false;
+    public bool Spawned = false;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerLevel = FindFirstObjectByType<PlayerLevel>();
-        timer = FindFirstObjectByType<Timer>();
     }
     void Update()
     {
@@ -23,10 +22,11 @@ public class SpawnLoot : MonoBehaviour
     public IEnumerator SpawningLoot()
     {
         isSpawning = true;  
-        timer.isRunning = true;
-        while(timer.time <= 0f)
+
+        Spawned = true;
+        while(isSpawning)
         {
-            timer.isRunning = false;
+            yield return new WaitForSeconds(spawnTime);
             Vector2 randomPosition = Random.insideUnitCircle * spawnRadius;
             Vector2 spawnPosition = (Vector2)player.transform.position + randomPosition;
             Instantiate(LootPrefab, spawnPosition, Quaternion.identity);

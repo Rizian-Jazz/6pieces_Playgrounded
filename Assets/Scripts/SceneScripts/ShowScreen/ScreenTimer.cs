@@ -6,11 +6,6 @@ public class ScreenTimer : MonoBehaviour
     public float totalSeconds = 0f;
     public int minutes, seconds;
     public TextMeshProUGUI timerText;
-
-    void Start()
-    {
-        totalSeconds = 55f;
-    }
     void Update()
     {
         totalSeconds += Time.deltaTime;
